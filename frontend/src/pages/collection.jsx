@@ -1,7 +1,11 @@
-export default function Collection() {
+const Collection = () => {
     return (
         <>
-            <h1>This is a collections page</h1>
+        <div>
+
+        </div>
         </>
     )
 }
+
+export default Collection;
