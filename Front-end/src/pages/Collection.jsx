@@ -7,13 +7,32 @@ import ProductItem from "../components/ProductItem";
 const Collection = () => {
   const { products } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
-  const [filterProducts,setFilterProducts] = useState([]);
+  const [filterProducts,setFilterProducts] = useState([]);  
+  const [category,setCategory] = useState([]);
+  const [subCategory,setSubCategory] = useState([]);
 
+
+  const toogleCategory = (e) => {
+
+    if(category.includes(e.target.value)) {
+      setCategory(prev=> prev.filter(item => item !== e.target.value))
+    }
+
+    else{
+      setCategory(prev => [...prev,e.target.value])
+    }
+
+  }
 
   useEffect(() => {
     setFilterProducts(products);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+
+
+  useEffect(() => {
+    console.log(category);
+  },[category])
 
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
@@ -39,15 +58,15 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Men"} />
+              <input className="w-3" type="checkbox" value={"Men"} onChange={toogleCategory}/>
               Men
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Women"} />
+              <input className="w-3" type="checkbox" value={"Women"} onChange={toogleCategory}/>
               Women
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Kidz"} />
+              <input className="w-3" type="checkbox" value={"Kidz"} onChange={toogleCategory}/>
               Kidz
             </p>
           </div>
