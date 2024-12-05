@@ -24,16 +24,38 @@ const Collection = () => {
 
   }
 
+  const toogleSubCategory = (e) => {
+    if(subCategory.includes(e.target.value)){
+      setSubCategory(prev=> prev.filter(item => item !== e.target.value))
+    }
+
+    else{
+      setSubCategory(prev => [...prev,e.target.value])
+    }
+
+  }
+
+
+  const applyFilter = () => {
+    let productsCopy = products.slice();
+
+    if (category.length > 0) {
+      productsCopy = productsCopy.filter(item => category.includes(item.category));
+    }
+
+    setFilterProducts(productsCopy);
+  }
+
   useEffect(() => {
     setFilterProducts(products);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
-
   useEffect(() => {
-    console.log(category);
-  },[category])
-
+    applyFilter();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[category, subCategory]);
+  
   return (
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filter Options */}
@@ -66,8 +88,8 @@ const Collection = () => {
               Women
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Kidz"} onChange={toogleCategory}/>
-              Kidz
+              <input className="w-3" type="checkbox" value={"Kids"} onChange={toogleCategory}/>
+              Kids
             </p>
           </div>
         </div>
@@ -80,15 +102,15 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">TYPE</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Topwear"} />
+              <input className="w-3" type="checkbox" value={"Topwear"} onChange={toogleSubCategory}/>
               TopWear
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Bottomwear"} />
+              <input className="w-3" type="checkbox" value={"Bottomwear"} onChange={toogleSubCategory}/>
               BottomWear
             </p>
             <p className="flex gap-2">
-              <input className="w-3" type="checkbox" value={"Winterwear"} />
+              <input className="w-3" type="checkbox" value={"Winterwear"} onChange={toogleSubCategory}/>
               Winterwear
             </p>
           </div>
