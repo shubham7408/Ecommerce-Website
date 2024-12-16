@@ -10,6 +10,7 @@ const Product = () => {
   const {products,currency} = useContext(ShopContext);
   const [productData,setProductData] = useState(false);
   const [image,setImage] = useState("");
+  const [size,setSize] = useState("");
 
 
   const fetchProductData = async () => {
@@ -67,12 +68,24 @@ const Product = () => {
           <p>Select Size</p>
           <div className="flex gap-2">
             {productData.sizes.map((item,index) => (
-              <button key={index}>{item}</button>
+              <button onClick={() =>setSize(item)} className={`border py-2 px-4 bg-gray-100 rounded-2xl ${item === size ? "border-orange-500" : " "}`} key={index}>{item}</button>
             ))}
           </div>
         </div>
+        <button className="bg-violet-700 text-white px-8 py-3 text-sm active:bg-green-500 rounded-2xl">ADD TO CART</button>
+        <hr className="mt-8 sm:w-4/5" />
+        <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
+          <p>100% Original Produxts.</p>
+          <p>Cash on Delivery is availabe on Product.</p>
+          <p>Easy return and exchange policy within 7 days. </p>
+        </div>
       </div>
     </div>
+    
+   {/* Description and Review Section */}
+
+   
+
     </div>
   ) : <div className="opacity-0"></div>
 }
