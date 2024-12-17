@@ -68,7 +68,7 @@ const Product = () => {
           <p>Select Size</p>
           <div className="flex gap-2">
             {productData.sizes.map((item,index) => (
-              <button onClick={() =>setSize(item)} className={`border py-2 px-4 bg-gray-100 rounded-2xl ${item === size ? "border-orange-500" : " "}`} key={index}>{item}</button>
+              <button onClick={() =>setSize(item)} className={`border py-2 px-4 bg-gray-100 rounded-2xl ${item === size ? "border-violet-700" : " "}`} key={index}>{item}</button>
             ))}
           </div>
         </div>
@@ -83,6 +83,17 @@ const Product = () => {
     </div>
     
    {/* Description and Review Section */}
+
+   <div className="mt-20">
+    <div className="flex"> 
+      <b className="border px-5 py-3 text-sm">Description</b>
+      <p className="border px-5 py-3 text-sm">Reviews (122)</p>
+    </div>
+    <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, exercitationem consectetur. Fugit molestias unde doloremque quibusdam autem nobis dolores rerum voluptate, est suscipit, alias dignissimos?</p>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, odio?</p>
+    </div>
+   </div>
 
    
 
