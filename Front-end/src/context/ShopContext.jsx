@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 import {products} from "../assets/frontend_assets/assets"
+import { toast } from 'react-toastify';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ShopContext = createContext();
@@ -15,9 +16,15 @@ const ShopContextProvider = (props) => {
     const [cartitems,setCartItems] = useState({});
 
     async function addToCart (itemId,size){
+
+        if(!size){
+            toast.error("Select Product Size");
+            return;
+        }
+
         const cartData = structuredClone(cartitems);
         if(cartData[itemId]){
-            if(cartData[itemId[size]]){
+            if(cartData[itemId][size]){
                 cartData[itemId][size] += 1;
             }
             else{
@@ -29,14 +36,27 @@ const ShopContextProvider = (props) => {
             cartData[itemId][size] = 1;
         }
         setCartItems(cartData);
+        toast.success("Product added to cart!");
     }
 
-    useEffect(() => {
-        console.log(cartitems)
-    },[cartitems])
+    const getCartCount = () => {
+        let totalCount = 0;
+        for(const items in cartitems){
+            for(const item in cartitems[items]){
+                try {
+                    if (cartitems[items][item] > 0) {
+                        totalCount += cartitems[items][item];
+                    }
+                } catch (error) {
+                    console.error('Error counting cart items:', error);
+                }
+            }
+        }
+        return totalCount;
+    }
 
     const value = {
-        products,currency,delivey_fee,showSearch,setShowSearch,search,setSearch,cartitems,addToCart
+        products,currency,delivey_fee,showSearch,setShowSearch,search,setSearch,cartitems,addToCart,getCartCount
     }
 
     return (
