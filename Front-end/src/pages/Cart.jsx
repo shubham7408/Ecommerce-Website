@@ -20,8 +20,7 @@ const Cart = () => {
         }
       }
     }
-    console.log(tempData);
-
+    setCartData(tempData);
   },[cartitems]);
 
   return (
