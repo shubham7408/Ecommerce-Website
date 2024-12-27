@@ -55,8 +55,45 @@ const ShopContextProvider = (props) => {
         return totalCount;
     }
 
+    async function updateQuantity(itemId, size, quantity) {
+        try {
+            const cartData = structuredClone(cartitems);
+            if (cartData[itemId] && cartData[itemId][size] !== undefined) {
+                cartData[itemId][size] = quantity;
+                setCartItems(cartData);
+                toast.success("Cart updated successfully!");
+            } else {
+                toast.error("Item not found in cart.");
+            }
+        } catch (error) {
+            console.log('Error updating cart quantity:', error);
+        }
+    }
+
+    async function getCartAmount (){
+        const totalAmount = 0;
+        for(const items in cartitems){
+            const iteminfo = products.find((product) => product.id === items);
+            for(const item in cartitems[items]){
+                try {
+                    if(cartitems[items][item] > 0){
+                        // eslint-disable-next-line no-const-assign
+                        totalAmount += iteminfo.price * cartitems[items][item];
+                    }
+                } catch (error) {
+                    console.log('Unable to calculate:',error);
+                }
+            }
+        }
+        return totalAmount;
+    }
+
     const value = {
-        products,currency,delivey_fee,showSearch,setShowSearch,search,setSearch,cartitems,addToCart,getCartCount
+        products,currency,delivey_fee,
+        showSearch,setShowSearch,search,setSearch,
+        cartitems,addToCart,
+        getCartCount,updateQuantity,
+        getCartAmount
     }
 
     return (
