@@ -2,6 +2,7 @@
 import { createContext, useState } from 'react';
 import {products} from "../assets/frontend_assets/assets"
 import { toast } from 'react-toastify';
+import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ShopContext = createContext();
@@ -10,10 +11,11 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
 
     const currency = '$';
-    const delivey_fee = 10;
+    const delivery_fee = 10;
     const [search,setSearch] = useState(" ");
     const [showSearch,setShowSearch] = useState(false);
     const [cartitems,setCartItems] = useState({});
+    const navigate = useNavigate();
 
     async function addToCart (itemId,size){
 
@@ -70,14 +72,13 @@ const ShopContextProvider = (props) => {
         }
     }
 
-    async function getCartAmount (){
-        const totalAmount = 0;
+    const  getCartAmount = () => {
+        let totalAmount = 0;
         for(const items in cartitems){
-            const iteminfo = products.find((product) => product.id === items);
+            const iteminfo = products.find((product) => product._id === items);
             for(const item in cartitems[items]){
                 try {
                     if(cartitems[items][item] > 0){
-                        // eslint-disable-next-line no-const-assign
                         totalAmount += iteminfo.price * cartitems[items][item];
                     }
                 } catch (error) {
@@ -89,11 +90,11 @@ const ShopContextProvider = (props) => {
     }
 
     const value = {
-        products,currency,delivey_fee,
+        products,currency,delivery_fee,
         showSearch,setShowSearch,search,setSearch,
         cartitems,addToCart,
         getCartCount,updateQuantity,
-        getCartAmount
+        getCartAmount,navigate
     }
 
     return (
