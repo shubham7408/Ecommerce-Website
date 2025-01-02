@@ -8,6 +8,7 @@ import RelatedProducts from '../components/RelatedProducts';
 const Product = () => {
 
   const {productId} = useParams();
+  // eslint-disable-next-line no-unused-vars
   const {products,currency,cartitems,addToCart} = useContext(ShopContext);
   const [productData,setProductData] = useState(false);
   const [image,setImage] = useState("");
