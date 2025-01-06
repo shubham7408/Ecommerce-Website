@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import winston from "winston";
-
 const URI = process.env.MONGODB_URI;
+
 if (!URI) {
     winston.error("MongoDB URI is not defined.");
     process.exit(1);
@@ -12,7 +12,7 @@ const mongooseOptions = {
     socketTimeoutMS: 45000,
 };
 
-const connectDB = async (retries = 5, retryDelay = 5000) => {
+async function connectDB (retries = 5, retryDelay = 5000) {
     for (let attempt = 1; attempt <= retries; attempt++) {
         try {
             winston.info(`MongoDB connection attempt ${attempt}`);
