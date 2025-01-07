@@ -30,7 +30,7 @@ async function connectDB (retries = 5, retryDelay = 5000) {
     }
 };
 
-const gracefulShutdown = async (signal) => {
+async function gracefulShutdown (signal) {
     try {
         await mongoose.connection.close();
         winston.info(`MongoDB connection closed due to ${signal}`);

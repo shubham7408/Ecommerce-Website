@@ -1,0 +1,21 @@
+Can you briefly introduce yourself and share how your experience aligns with the responsibilities of a MERN Stack Developer?
+
+I have experience working with the MERN stack, including developing web applications using MongoDB, Express.js, React, and Node.js. I have successfully implemented full-stack solutions, utilizing my skills in frontend and backend development to deliver high-quality products.
+
+Imagine you're asked to optimize a web application's load time for better performance. What strategies would you use considering your experience with the MERN stack?
+To optimize a web application's load time for better performance, I would minify and compress files, use lazy loading for images and components, leverage browser caching, and optimize database queries. I would also consider code splitting and server-side rendering to improve initial load times.
+
+
+Describe a challenging project you worked on with cross-functional teams. How did you ensure successful collaboration and alignment with project goals?
+In a challenging project with cross-functional teams, I facilitated open communication, set clear goals and expectations, and encouraged collaboration through regular meetings and updates. I ensured everyone understood their roles and responsibilities, prioritized tasks effectively, and addressed any conflicts promptly to maintain alignment with project goals.
+
+Can you talk about a time when you had to troubleshoot or debug a complex issue in a project? What steps did you take to resolve it?
+In a previous project, I had to troubleshoot a complex issue with our database connectivity. I started by reviewing the code to identify any potential errors, then ran tests to pinpoint the issue. After isolating the problem, I worked with the team to implement a solution and conducted thorough testing to ensure it was resolved.
+
+How do you ensure data protection and security in applications you develop using MongoDB and Node.js?
+To ensure data protection and security in applications developed using MongoDB and Node.js, I follow best practices such as using encryption for sensitive data, implementing authentication and authorization mechanisms, and regularly updating software to address any security vulnerabilities.
+
+Can you explain how you would integrate RESTful APIs with a frontend using React and backend using Node.js and Express.js?
+
+To integrate RESTful APIs with a frontend using React and a backend using Node.js and Express.js, I would first create API endpoints in the backend, then fetch data using Fetch/Axios in the frontend and display it accordingly. I would ensure proper validation and error handling throughout the process.
+
