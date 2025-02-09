@@ -1,3 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active{
+    color: white;
+    background-color: #FF5733;
+    border-color: #FF5733;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    &:hover{
+        background-color: #FF5733;
+        color: white;
+    }
+    &:focus{
+        outline: none;
+    }
+    &:disabled{
+        background-color: #ccc;
+        color: #ccc;
+        cursor: not-allowed;
+    }
+    &:active{
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+    &:focus-visible{
+        outline: 2px solid #FF5733;
+    }
+    &:focus-within{
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+    &:not(:disabled):active{
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+    &:not(:disabled):focus-visible{
+        outline: 2px solid #FF5733;
+    }
+    &:not(:disabled):focus-within{
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+    &:not(:disabled):active:focus-visible{
+        outline: 2px solid #FF5733;
+    }
+    &:not(:disabled):active:focus-within{
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+    &:not(:disabled):not(:active):focus-visible{
+        outline: 2px solid #FF5733;
+    }
+    &:not(:disabled):not(:active):focus-within{
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+    &:not(:disabled):not(:active):active:focus-visible{
+        outline: 2px solid #FF5733;
+    }
+    &:not(:disabled):not(:active):active:focus-within{
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+    &:not(:disabled):not(:active):not(:focus-visible):not(:focus-within){
+        background-color: #FF5733;
+        color: white;
+        border-color: #FF5733;
+    }
+}
