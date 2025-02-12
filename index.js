@@ -1,3 +1,4 @@
+import { greet1 } from "./API.js";
 function add(a) {
   return function (b) {
     return function (c) {
@@ -299,3 +300,56 @@ const users = [{
 }];
 
 console.table(users);
+
+greet1();
+
+
+const sym1 = Symbol("name");
+const sym2 = Symbol("name");
+
+console.log(sym1 === sym2);
+console.log(sym1 === sym2);
+
+//Map and Set data structures
+
+const map1 = new Map();
+map1.set("name", "John Doe");
+map1.set("age", 25);
+map1.set("address", { street: "123 Main St", city: "New York" });
+
+console.log(map1);
+console.log(map1.get("name"));
+console.log(map1.get("age"));
+console.log(map1.get("address"));
+
+map1.delete("age");
+console.log(map1);
+
+
+//set
+const uniquevalue = [1,2,2,24,5,4,4,33,3,3];
+const unique = new Set(uniquevalue);
+unique.add(44);
+console.log(unique);
+
+
+//object of object
+const obj34 = {a : 1, b : 2};
+console.log(Object.values(obj34));
+console.log(Object.keys(obj34));
+console.log(Object.keys(obj34).length);
+console.log(Object.entries(obj34));
+
+
+//flat method
+
+const arr45 = [1,2,[3,4,[5,6]]];
+console.log(arr45.flat());
+console.log(arr45.flat(2));
+
+//Optional chaning
+const user12 = {};
+console.log(user12?.address?.street);
+
+const count = null;
+console.log(count ?? 0);

@@ -145,3 +145,8 @@ function makeXHRRequest(url) {
     }
   });
 }
+
+
+export async function greet1 () {
+  console.log("Hello");
+}
