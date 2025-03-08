@@ -106,6 +106,8 @@ const user = {
 
 const { name1, age, address } = user;
 console.log(name1);
+console.log(age);
+console.log(address);
 
 //Destructions array
 const fruits1 = ["Apple", "Banana", "Pineapple"];
